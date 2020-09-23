@@ -21,7 +21,7 @@ use Test::More tests => 6;
 	is($eroot, '', 'test for EROOT (envvar)');
 	
 	my $eroot_1 = $portageq->envvar_1('EROOT');
-	is($eroot_1, '', 'test for EROOT (envvar_1)');
+	is($eroot_1, '/', 'test for EROOT (envvar_1)');
 	
 	my $eroot_2 = $portageq->envvar_2('EROOT');
 	is($eroot_2, '/', 'test for EROOT (envvar_2)');

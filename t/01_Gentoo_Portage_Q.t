@@ -17,6 +17,6 @@ use Test::More tests => 3;
 	is($cwd, '/var/tmp/portage/app-portage/g-cpan-9999/work/g-cpan-9999', 'test for cwd');
 	
 	my $portageq = Gentoo::Portage::Q->new();
-	my $eroot = $portageq->envvar('EROOT')
+	my $eroot = $portageq->envvar('EROOT');
 	is($eroot, '/', 'test for EROOT');
 }

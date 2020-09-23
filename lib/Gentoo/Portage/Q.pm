@@ -68,6 +68,20 @@ sub envvar {
     return $self->{_portage_env}{$var};
 }
 
+sub envvar_1 {
+    my ( $self, $var ) = @_;
+
+    return $ENV{$var};
+}
+
+sub envvar_2 {
+    my ( $self, $var ) = @_;
+
+    $self->{_portage_env} ||= $self->_read_portage_env();
+
+    return $self->{_portage_env}{$var};
+}
+
 =head2 get_repo_path( $eroot, $repo_id )
 
 Returns the path to the C<$repo_id>.

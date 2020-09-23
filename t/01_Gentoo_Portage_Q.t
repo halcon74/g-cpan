@@ -6,7 +6,7 @@ use warnings;
 use lib 'lib';
 use Path::Tiny;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 {
 	use_ok('Gentoo::Portage::Q');
@@ -18,5 +18,8 @@ use Test::More tests => 3;
 	
 	my $portageq = Gentoo::Portage::Q->new();
 	my $eroot = $portageq->envvar('EROOT');
-	is($eroot, '/', 'test for EROOT');
+	is($eroot, '/', 'test for EROOT (envvar)');
+	
+	my $eroot_from_obj = $portageq->{_eroot};
+	is($eroot_from_obj, '/', 'test for EROOT (from obj)');
 }

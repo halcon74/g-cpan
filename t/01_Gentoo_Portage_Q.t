@@ -18,7 +18,7 @@ use Test::More tests => 4;
 	
 	my $portageq = Gentoo::Portage::Q->new();
 	my $eroot = $portageq->envvar('EROOT');
-	is($eroot, '/', 'test for EROOT (envvar)');
+	is($eroot, '', 'test for EROOT (envvar)');
 	
 	my $eroot_from_obj = $portageq->{_eroot};
 	is($eroot_from_obj, '/', 'test for EROOT (from obj)');

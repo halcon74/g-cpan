@@ -61,31 +61,13 @@ Returns a specific environment variable as exists prior to ebuild.sh.
 sub envvar {
     my ( $self, $var ) = @_;
 
-    return $ENV{$var} if defined $ENV{$var};    # prefer to use custom from ENV
+    return $ENV{$var} if $ENV{$var};    # prefer to use custom from ENV
 
     $self->{_portage_env} ||= $self->_read_portage_env();
 
     return $self->{_portage_env}{$var};
 }
 
-sub envvar_1 {
-    my ( $self, $var ) = @_;
-    
-    if ($ENV{$var} eq '') {
-        return '/';
-    }
-    else {
-        return '';
-    }
-}
-
-sub envvar_2 {
-    my ( $self, $var ) = @_;
-
-    $self->{_portage_env} ||= $self->_read_portage_env();
-
-    return $self->{_portage_env}{$var};
-}
 
 =head2 get_repo_path( $eroot, $repo_id )
 

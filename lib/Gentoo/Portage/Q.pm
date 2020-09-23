@@ -70,8 +70,13 @@ sub envvar {
 
 sub envvar_1 {
     my ( $self, $var ) = @_;
-
-    return $ENV{$var};
+    
+    if ($ENV{$var} eq '') {
+        return '/';
+    }
+    else {
+        return '';
+    }
 }
 
 sub envvar_2 {
